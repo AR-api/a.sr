@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>安思睿(计网作业)</title>
+</head>
+<body>
+ 
+<h1>介绍我的家乡</h1>
+ 
+<p>安思睿 3190101808</p>
+
+<a href="https://baike.baidu.com/item/铜仁/5103877?fromtitle=贵州省铜仁市&fromid=24443346&fr=aladdin">点击查看家乡铜仁市简介</a>
+
+</body>
+</html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>设置点标注的文本标签</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"/>
+    <style>
+        html, body, #container {
+            height: 100%;
+            width: 100%;
+        }
+
+        .amap-icon img {
+            width: 20px;
+            height: 30px;
+        }
+
+        .amap-marker-label{
+            border: 0;
+            background-color: transparent;
+        }
+
+        .info{
+            position: relative;
+            top: 0;
+            right: 0;
+            min-width: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/javascript"
+        src="https://webapi.amap.com/maps?v=1.4.15&key=3ad116011698fbf4c5b8b79227a716c2"></script>
+<script type="text/javascript">
+    var map = new AMap.Map('container', {
+        resizeEnable: true,
+        center: [109.189598, 27.731514],
+        zoom: 13
+    });
+
+    var marker = new AMap.Marker({
+        position: map.getCenter(),
+        icon: '/Users/siri/Desktop/Tongren.jpeg',
+        offset: new AMap.Pixel(-13, -30)
+    });
+
+    marker.setMap(map);
+
+    // 设置鼠标划过点标记显示的文字提示
+    marker.setTitle('贵州省铜仁市');
+
+    // 设置label标签
+    // label默认蓝框白底左上角显示，样式className为：amap-marker-label
+    marker.setLabel({
+        offset: new AMap.Pixel(20, 20),  //设置文本标注偏移量
+        content: "<div class='info'>铜仁市，贵州省地级市，位于贵州省东北部，武陵山区腹地。</div>", //设置文本标注内容
+        direction: 'right' //设置文本标注方位
+    });
+</script>
+</body>
+</html>
